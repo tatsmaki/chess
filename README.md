@@ -18,7 +18,7 @@
     <a><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a>View Demo</a>
+    <a href="https://chess-zeta.vercel.app/">View Demo</a>
     ·
     <a>Report Bug</a>
     ·
