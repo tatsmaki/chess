@@ -13,7 +13,7 @@ const CameraControls = () => {
     camera.position.set(0, 6, 0)
     controls.current.target = new Vector3(4.5, 0, -4.5)
     controls.current.update()
-  }, [])
+  }, [camera.position])
 
   useFrame(() => {
     controls.current.update()

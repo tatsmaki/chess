@@ -27,8 +27,6 @@ type BoardState = {
   [key: string]: CellProps
 }
 
-const cols = 'abcdefgh'
-
 const Board = () => {
   const [board, setBoard] = useState<BoardState>(defaultBoard)
   const [selectedFigure, setSelectedFigure] = useState<string | null>(null)
