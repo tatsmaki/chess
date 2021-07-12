@@ -1,31 +1,21 @@
 import React from 'react'
 
-type CellProps = {
-  cellProps: {
-    id: string,
-    x: number,
-    y: number,
-    active?: boolean
-  }
-  handleTurn: (id: string) => void
-}
-
-const Cell = (props: CellProps) => {
+const Cell = (props: any) => {
   const {
-    cellProps: { id, x, y, active },
+    index,
+    color,
+    isActive,
     handleTurn
   } = props
 
-  const cellColor = (x + y) % 2 === 0 ? '#000000' : '#ffffff'
-
   return (
     <group>
-      <mesh position={[x, y, 0]} receiveShadow onClick={() => handleTurn(id)}>
+      <mesh receiveShadow onClick={() => handleTurn(index)}>
         <planeGeometry args={[1, 1]} />
-        <meshStandardMaterial color={cellColor} />
+        <meshStandardMaterial color={color} />
       </mesh>
-      {active && (
-        <mesh position={[x, y, 0.001]}>
+      {isActive && (
+        <mesh position={[0, 0, 0.001]}>
           <planeGeometry args={[1, 1]}/>
           <meshStandardMaterial color="#5172DE" opacity={0.6} transparent />
         </mesh>

@@ -1,21 +1,13 @@
 import React, { useMemo } from 'react'
-import { SphereGeometry, CylinderGeometry, TorusGeometry, Vector3, Matrix4 } from 'three'
+import { SphereGeometry, CylinderGeometry, TorusGeometry, Matrix4 } from 'three'
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils'
 
-type PawnProps = {
-  pawnProps: any
-  color: string
-  handleClick: any
-}
-
-const Pawn = (props: PawnProps) => {
+const Pawn = (props: any) => {
   const {
-    pawnProps: { id, x, y, mesh },
+    index,
     color,
     handleClick
   } = props
-  const position = new Vector3(x, y, 0.5)
-  // const color = mesh.charAt(1) === 'w' ? 'white' : 'black'
 
   const pawnGeometry = useMemo(() => {
     const sphereGeometry = new SphereGeometry(0.2, 32, 32)
@@ -36,11 +28,11 @@ const Pawn = (props: PawnProps) => {
   return (
     <mesh
       geometry={pawnGeometry}
-      position={position}
+      position={[0, 0, 0.5]}
       rotation={[Math.PI / 2, 0, 0]}
       receiveShadow
       castShadow
-      onClick={() => handleClick(id)}
+      onClick={() => handleClick(index)}
     >
       <meshStandardMaterial color={color} />
     </mesh>
